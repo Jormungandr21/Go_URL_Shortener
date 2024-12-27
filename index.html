@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Go URL Shortener</title>
+        <link rel="stylesheet" href="/resources/css/style.css"/>
+    </head>
+
+    <body>
+        <h2>Go URL Shortener</h2>
+        <h3>{{ .FORM_RESULT}}</h3>
+        <form action="/shorten" method="POST">
+            <input type="text" name="url" styles="width: 35em;">
+            <input type="submit" value="Shorten!"/>
+        </form>
+        {{ if IsPositive .URL_COUNT }}
+        <p>{{ .URL_COUNT }} URLs shortened</p>
+        {{ end }}
+
+        <form action="/clear_cache" method="POST">
+            <input type="submit" value="Clear DB">
+        </form>
+    </body>
+</html>
